@@ -6,7 +6,7 @@ module filtered_ram (
 
     parameter IMG_SIZE = 256;
 
-    reg [7:0] filtRam [(IMG_SIZE-1)*(IMG_SIZE-1)-1:0];
+    reg [7:0] filtRam [(IMG_SIZE-2)*(IMG_SIZE-2)-1:0];
 
     always @(posedge clk) 
     begin
