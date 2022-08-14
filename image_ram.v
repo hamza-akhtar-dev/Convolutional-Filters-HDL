@@ -6,9 +6,12 @@ module image_ram (
     parameter IMG_SIZE = 256;
 
     reg [7:0] imRam [IMG_SIZE*IMG_SIZE-1:0];
-    initial begin
-    $readmemb("image.mem", imRam);
+
+    initial 
+    begin
+        $readmemb("image.mem", imRam);
     end
+
     always @(*) 
     begin
         p0 <= imRam[imAddr];

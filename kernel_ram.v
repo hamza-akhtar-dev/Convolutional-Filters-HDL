@@ -6,8 +6,10 @@ module kernel_ram (
     parameter KER_SIZE = 3;
 
     reg [7:0] kRam [KER_SIZE*KER_SIZE-1:0];
-    initial begin
-    $readmemb("kernel.mem", kRam);
+    
+    initial 
+    begin
+        $readmemb("kernel.mem", kRam);
     end
     
     always @(*) 

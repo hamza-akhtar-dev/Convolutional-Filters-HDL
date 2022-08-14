@@ -1,7 +1,7 @@
 module controller(
     input rst, clk,
     output reg done,
-    output reg [15:0] imAddr, kAddr, filtAddr
+    output reg [15:0] imAddr, kAddr, filtimAddr
 );
 
 parameter IMG_SIZE = 256;
@@ -17,7 +17,7 @@ begin
     begin
         imAddr <= 1'b0;
         kAddr <= 1'b0;
-        filtAddr <= 1'b0;
+        filtimAddr <= 1'b0;
         column_offset <= 1'b0;
         done <= 1'b0;
     end
@@ -28,7 +28,7 @@ begin
         begin
 
             imAddr <= imAddr + 1'b1;
-            filtAddr <= filtAddr + 1'b1;
+            filtAddr <= filtimAddr + 1'b1;
       
             else if (imAddr == (IMG_SIZE - KER_SIZE + column_offset))
             begin
@@ -40,7 +40,7 @@ begin
                     done <= 1'b1;
                     imAddr <= 1'b0;
                     kAddr <= 1'b0;
-                    filtAddr <= 1'b0;
+                    filtimAddr <= 1'b0;
                 end
             end
         end
