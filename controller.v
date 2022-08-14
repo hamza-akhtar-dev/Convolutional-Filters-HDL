@@ -7,7 +7,6 @@ module controller(
 parameter IMG_SIZE = 256;
 parameter KER_SIZE = 3;
 
-reg done;
 reg [7:0] column_offset;
 
 always@(posedge clk) 
@@ -28,10 +27,11 @@ begin
         begin
 
             imAddr <= imAddr + 1'b1;
-            filtAddr <= filtimAddr + 1'b1;
+            filtimAddr <= filtimAddr + 1'b1;
       
-            else if (imAddr == (IMG_SIZE - KER_SIZE + column_offset))
+            if (imAddr == (IMG_SIZE - KER_SIZE + column_offset))
             begin
+            
                 column_offset <= column_offset + IMG_SIZE;
                 imAddr <= imAddr + IMG_SIZE - KER_SIZE;
 
