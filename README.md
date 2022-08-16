@@ -4,4 +4,7 @@ This an HDL implementation of convolutional filteration of grayscale images with
 ## Block Diagram
 <img src="./block_diagram.png" />
 
+## Simulation
+<img src="./simulation.png" />
+
 
