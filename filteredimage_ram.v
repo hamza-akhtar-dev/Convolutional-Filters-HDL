@@ -4,7 +4,7 @@ module filteredimage_ram (
     input [15:0] filtimAddr
 );
 
-    parameter IMG_SIZE = 256;
+    parameter IMG_SIZE = 10;
 
     reg [7:0] filtimRam [(IMG_SIZE-2)*(IMG_SIZE-2)-1:0];
 

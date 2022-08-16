@@ -3,7 +3,7 @@ module image_ram (
     output reg [7:0] p0, p1, p2, p3, p4, p5, p6, p7, p8
 );
 
-    parameter IMG_SIZE = 256;
+    parameter IMG_SIZE = 10;
 
     reg [7:0] imRam [IMG_SIZE*IMG_SIZE-1:0];
 
