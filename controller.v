@@ -11,6 +11,7 @@ reg[15:0] column_offset;
 
 always @(posedge clk) 
 begin 
+
     if(rst)
     begin
         imAddr <= 1'b0;
@@ -19,16 +20,17 @@ begin
         column_offset <= 1'b0;
         done <= 1'b0;
     end
+
     else
     begin
         if (~done)
         begin
+
             imAddr <= imAddr + 1'b1;
             filtimAddr <= filtimAddr + 1'b1;
         
             if (imAddr == (IMG_SIZE - KER_SIZE + column_offset))
             begin
-
                 column_offset <= column_offset + IMG_SIZE;
                 imAddr <= imAddr + KER_SIZE;
 
@@ -38,8 +40,7 @@ begin
                     imAddr <= 1'b0;
                     kAddr <= 1'b0;
                     filtimAddr <= 1'b0;
-                end
-                
+                end 
             end
         end
     end
